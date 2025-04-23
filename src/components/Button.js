@@ -75,6 +75,22 @@ const Button = ({ value }) => {
 
     }
 
+    const percentClick = () => {
+        setCalc({
+            num: (calc.num / 100),
+            res: (calc.res / 100),
+            sign: ''
+        })
+    }
+
+    const invertClick = () => {
+        setCalc({
+            num: calc.num ? calc.num * -1 : 0,
+            res: calc.res ? calc.num * -1 : 0,
+            sign: ''
+        })
+    }
+
     const handleBtnClick = () => {
         
         const results = {
@@ -84,7 +100,9 @@ const Button = ({ value }) => {
             'x': signClick,
             '-': signClick,
             '+': signClick,
-            '=': equalsClick
+            '=': equalsClick,
+            '%': percentClick,
+            '+-': invertClick
         }
         
         if(results[value]) {
